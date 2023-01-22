@@ -25,3 +25,7 @@ def lyrics():
       print("This works")
   else:
     print("This song doesn't have lyrics.")
+
+
+if __name__ == '__main__':
+    app.run()
