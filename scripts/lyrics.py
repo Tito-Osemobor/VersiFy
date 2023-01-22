@@ -19,14 +19,14 @@ def lyrics():
   title = request.form['song']
   singer = request.form['artist']
   song = genius.search_song(title, singer)
-  if song.lyrics:
-    data = {"lyrics": song.lyrics}
-    json_data = json.dumps(data)
-    with open("song_lyrics.json", "w") as outfile:
-      outfile.write(json_data)
-      return render_template("practice.html")
-  else:
-    return render_template("practice2.html")
+  # if song.lyrics:
+  data = {"lyrics": song.lyrics}
+  json_data = json.dumps(data)
+  with open("song_lyrics.json", "w") as outfile:
+    outfile.write(json_data)
+    return render_template("practice.html")
+  # else:
+  #   return render_template("practice2.html")
 
 
 if __name__ == '__main__':
