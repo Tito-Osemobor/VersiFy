@@ -10,7 +10,7 @@ client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 client_token = os.getenv("CLIENT_TOKEN")
 
-app = Flask("__name__",template_folder='templates')
+app = Flask("__name__",template_folder='/')
 
 
 @app.route("/")
@@ -28,9 +28,9 @@ def lyrics():
     json_data = json.dumps(data)
     with open("../scripts/song_lyrics.json", "w") as outfile:
       outfile.write(json_data)
-      return "Lyrics successfully retrieved and stored in song_lyrics.json"
+      return render_template("login.html")
   else:
-    print("This song doesn't have lyrics.")
+    return render_template("practice2.html")
 
 
 if __name__ == '__main__':
