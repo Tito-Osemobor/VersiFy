@@ -1,9 +1,8 @@
 import json
-from flask import Flask
+from flask import Flask, request
 from dotenv import load_dotenv
 import os
 from lyricsgenius import Genius
-
 load_dotenv()
 
 client_id = os.getenv("CLIENT_ID")
@@ -11,13 +10,12 @@ client_secret = os.getenv("CLIENT_SECRET")
 client_token = os.getenv("CLIENT_TOKEN")
 
 app = Flask(__name__)
+@app.route("/lyrics",methods=['POST'])
 
-
-@app.route("/lyrics")
 def lyrics():
   genius = Genius(client_token)
-  singer = "The Weeknd"
-  title = "In the night"
+  title = request.form['song']
+  singer = request.form['artist']
   song = genius.search_song(title, singer)
   if song.lyrics:
     data = {"lyrics": song.lyrics}
