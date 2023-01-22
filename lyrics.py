@@ -10,7 +10,7 @@ client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 client_token = os.getenv("CLIENT_TOKEN")
 
-app = Flask("__name__",template_folder='/')
+app = Flask("__name__",template_folder='/templates')
 
 
 @app.route("/")
