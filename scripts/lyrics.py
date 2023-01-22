@@ -22,7 +22,7 @@ def lyrics():
     json_data = json.dumps(data)
     with open("song_lyrics.json", "w") as outfile:
       outfile.write(json_data)
-      print("This works")
+      return "Lyrics successfully retrieved and stored in song_lyrics.json"
   else:
     print("This song doesn't have lyrics.")
 
