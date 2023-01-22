@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 @app.route("/lyrics", methods=['POST'])
 def lyrics():
+  print("hi")
   genius = Genius(client_token)
   title = request.form['song']
   singer = request.form['artist']
@@ -22,7 +23,7 @@ def lyrics():
   if song.lyrics:
     data = {"lyrics": song.lyrics}
     json_data = json.dumps(data)
-    with open("song_lyrics.json", "w") as outfile:
+    with open("../scripts/song_lyrics.json", "w") as outfile:
       outfile.write(json_data)
       return "Lyrics successfully retrieved and stored in song_lyrics.json"
   else:
