@@ -13,7 +13,7 @@ client_token = os.getenv("CLIENT_TOKEN")
 app = Flask(__name__)
 
 @app.route('/')
-@app.route("/lyrics", methods=['POST'])
+@app.route('/lyrics', methods=['POST'])
 def lyrics():
   genius = Genius(client_token)
   title = request.form['song']
