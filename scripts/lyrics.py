@@ -24,7 +24,7 @@ def lyrics():
   json_data = json.dumps(data)
   with open("song_lyrics.json", "w") as outfile:
     outfile.write(json_data)
-    return render_template("practice.html")
+  return render_template("practice.html")
   # else:
   #   return render_template("practice2.html")
 
